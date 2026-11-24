@@ -48,29 +48,29 @@ class ModelPricing:
 # Standard pricing catalog (Google Gemini official production rates)
 MODEL_CATALOG: Dict[str, ModelPricing] = {
     # Tier 1 Models
-    "gemini-2.5-flash": ModelPricing(
-        model_name="gemini-2.5-flash",
+    "gemini-3.5-flash": ModelPricing(
+        model_name="gemini-3.5-flash",
         tier=ModelTier.TIER_1_FAST,
         input_cost_per_million=0.075,
         output_cost_per_million=0.30,
     ),
-    "gemini-2.5-flash-lite": ModelPricing(
-        model_name="gemini-2.5-flash-lite",
+    "gemini-3.5-flash-lite": ModelPricing(
+        model_name="gemini-3.5-flash-lite",
         tier=ModelTier.TIER_1_FAST,
         input_cost_per_million=0.0375,
         output_cost_per_million=0.15,
     ),
     # Tier 2 Models
-    "gemini-2.5-pro": ModelPricing(
-        model_name="gemini-2.5-pro",
+    "gemini-3.8-flash": ModelPricing(
+        model_name="gemini-3.8-flash",
         tier=ModelTier.TIER_2_REASONING,
         input_cost_per_million=1.25,
         output_cost_per_million=5.00,
     ),
 }
 
-DEFAULT_TIER_1_MODEL = "gemini-2.5-flash"
-DEFAULT_TIER_2_MODEL = "gemini-2.5-pro"
+DEFAULT_TIER_1_MODEL = "gemini-3.5-flash"
+DEFAULT_TIER_2_MODEL = "gemini-3.8-flash"
 
 
 @dataclass
