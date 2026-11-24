@@ -370,6 +370,17 @@ class SemanticCacheStore:
 
         return entry
 
+    def clear(self) -> None:
+        """Clear both In-Memory and Redis cache entries."""
+        self.in_memory_store.clear()
+        if self.redis_store.is_connected and self.redis_store._client:
+            try:
+                keys = self.redis_store._client.keys("cache:*")
+                if keys:
+                    self.redis_store._client.delete(*keys)
+            except Exception:
+                pass
+
     def __len__(self) -> int:
         return len(self.in_memory_store)
 
